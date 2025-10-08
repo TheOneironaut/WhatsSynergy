@@ -1,0 +1,37 @@
+# whatsapi-python Type Hints
+
+This package is fully typed and ships with type hints.
+
+## Type Checker Compatibility
+
+This package has been tested with:
+- mypy
+- pyright
+- pyre
+
+## Example Usage with Type Hints
+
+```python
+from whatsapi import EvolutionAPIProvider, WhatsAppMessage
+from typing import Optional
+
+async def process_message(message: WhatsAppMessage) -> None:
+    """Process incoming message with full type safety."""
+    if message.is_text:
+        text: Optional[str] = message.text
+        if text:
+            print(f"Received: {text}")
+
+provider: EvolutionAPIProvider = EvolutionAPIProvider(
+    base_url="http://localhost:8080",
+    api_key="key",
+    instance_name="bot"
+)
+```
+
+## IDE Support
+
+All public APIs include:
+- Complete type annotations
+- Docstrings with parameter and return type documentation
+- IDE autocomplete support
